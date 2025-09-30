@@ -13,7 +13,7 @@ router.delete('/:id', deletePerk);
 
 export default router;*/
 
-import express from "express";
+/*import express from "express";
 import {
   getAllPerks,
   getPerk,
@@ -41,6 +41,34 @@ router.post("/", createPerk);
 router.put("/:id", updatePerk);
 
 // DELETE /api/perks/:id  → delete a perk by ID
+router.delete("/:id", deletePerk);
+
+export default router;*/
+
+import express from "express";
+import {
+  getAllPerks,
+  getPerk,
+  createPerk,
+  updatePerk,
+  patchPerk,
+  deletePerk,
+  filterPerks
+} from "../controllers/perkController.js";
+
+const router = express.Router();
+
+router.get("/", getAllPerks);
+router.get("/filter", filterPerks);
+router.get("/:id", getPerk);
+router.post("/", createPerk);
+
+// PUT → full update
+router.put("/:id", updatePerk);
+
+// PATCH → partial update
+router.patch("/:id", patchPerk);
+
 router.delete("/:id", deletePerk);
 
 export default router;
